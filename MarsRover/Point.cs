@@ -1,10 +1,10 @@
 ﻿namespace MarsRover
 {
-    public record Point(ushort X, ushort Y)
+    public record Point(int X, int Y)
     {
         public static Point operator +(Point a, Point b)
         {
-            return new Point((ushort) (a.X + b.X), (ushort) (a.Y + b.Y));
+            return new Point((a.X + b.X), (a.Y + b.Y));
         }
     }
 }

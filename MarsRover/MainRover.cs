@@ -29,7 +29,6 @@ class MainRover
             String directionCommande = Console.ReadLine();
 
             //si on veut arrêter de jouer
-            //directionCommande == "stop" ? stop = 1 : stop = 0;
             if (directionCommande == "stop")
             {
                 stop = 1;
@@ -52,36 +51,33 @@ class MainRover
                     
                     if(positionActuelle == triche)
                     {
-                        Console.WriteLine("Je suis face à un obstacle position actuelle : " + positionActuelle);
+                        Console.WriteLine("Je suis face à un obstacle position actuelle : " + positionActuelle + "\nJe ne peux plus avancer, retour à la position de départ");
+                        i = tableauCommandes.Length;
                     }
                     
                 }
                 //pour aller à gauche
                 else if (tableauCommandes[i].ToString().ToLower().Equals("g"))
                 {
-                    try
+                    positionActuelle = rover.Traiter(new TourneAGaucheCommande()).Position;
+                    Console.WriteLine("Ma position est : " + positionActuelle);
+
+                    if (positionActuelle == triche)
                     {
-                        positionActuelle = rover.Traiter(new TourneAGaucheCommande()).Position;
-                        Console.WriteLine("Ma position est : " + positionActuelle);
-                    }
-                    catch
-                    {
-                        Console.WriteLine("Je suis face à un obstacle position actuelle : " + positionActuelle);
-                        break;
+                        Console.WriteLine("Je suis face à un obstacle position actuelle : " + positionActuelle + "\nJe ne peux plus avancer, retour à la position de départ");
+                        i = tableauCommandes.Length;
                     }
                 }
                 //pour aller à droite
                 else if (tableauCommandes[i].ToString().ToLower().Equals("d"))
                 {
-                    try
+                    positionActuelle = rover.Traiter(new TournerADroiteCommande()).Position;
+                    Console.WriteLine("Ma position est : " + positionActuelle);
+
+                    if (positionActuelle == triche)
                     {
-                        positionActuelle = rover.Traiter(new TournerADroiteCommande()).Position;
-                        Console.WriteLine("Ma position est : " + positionActuelle);
-                    }
-                    catch
-                    {
-                        Console.WriteLine("Je suis face à un obstacle position actuelle : " + positionActuelle);
-                        break;
+                        Console.WriteLine("Je suis face à un obstacle position actuelle : " + positionActuelle + "\nJe ne peux plus avancer, retour à la position de départ");
+                        i = tableauCommandes.Length;
                     }
                 }
                 //si c'est une mauvaise direction
@@ -90,16 +86,6 @@ class MainRover
                     Console.WriteLine("La direction demandée n'est pas correcte");
                 }
             }
-
-            
-            //positionActuelle.X = 0;
-
-            //Console.ReadKey();
-            
-            //repartir du point à zero
-            //remettre à la ligne
-            //dire que le point repars de zéro
-
         }
     }
 }

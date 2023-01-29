@@ -2,10 +2,10 @@
 {
     internal class PlanèteBuilder
     {
-        private ushort? _tailleTorique;
+        private int? _tailleTorique;
         private Point? _obstacleEventuel;
 
-        public PlanèteBuilder ToriqueDeTailleX(ushort taille)
+        public PlanèteBuilder ToriqueDeTailleX(int taille)
         {
             _tailleTorique = taille;
             return this;
@@ -18,7 +18,7 @@
             return planète;
         }
 
-        public PlanèteBuilder AyantUnObstacle(ushort x, ushort y)
+        public PlanèteBuilder AyantUnObstacle(int x, int y)
         {
             _obstacleEventuel = new Point(x, y);
             return this;

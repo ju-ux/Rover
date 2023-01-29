@@ -2,16 +2,16 @@
 {
     public class Tore : IPlanète
     {
-        private readonly ushort _taille;
+        private readonly int _taille;
 
-        public Tore(ushort taille)
+        public Tore(int taille)
         {
             _taille = taille;
         }
 
         public Point Canoniser(Point point)
         {
-            return new Point((ushort) (point.X % _taille), (ushort) (point.Y % _taille));
+            return new Point((point.X % _taille), (point.Y % _taille));
         }
 
         /// <inheritdoc />

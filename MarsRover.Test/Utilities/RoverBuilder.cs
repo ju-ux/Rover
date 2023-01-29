@@ -12,7 +12,7 @@
             return this;
         }
 
-        public RoverBuilder Positionné(ushort x, ushort y)
+        public RoverBuilder Positionné(int x, int y)
         {
             _positionDépart = new Point(x, y);
             return this;
